@@ -1,0 +1,50 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Place</th>
+        <th>Action</th> <!-- New column for action buttons -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of data | async">
+        <td>{{ v.id }}</td>
+        <td>{{ v.name }}</td>
+        <td>{{ v.place }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteStudent(v.id)">Delete</button> <!-- Delete button -->
+          <span style="margin-left: 5px;"></span> <!-- Space between buttons -->
+          <button class="btn btn-primary" (click)="updateStudent(v.id)">Update</button> <!-- Update button -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  <!-- *********************************************************** -->
+  
+
+  <form *ngIf="update"  [formGroup]="updateForm">
+    <div>
+        <label for="id">Id</label>
+        <input type="number" formControlName="id">
+        <div *ngIf="updateForm.controls.id.invalid && updateForm.controls.id.touched" class="error">Id is required</div>
+    </div>
+
+    <div>
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" id="name">
+        <div *ngIf="updateForm.controls.name.invalid && updateForm.controls.name.touched" class="error">Name is required</div>
+    </div>
+
+    <div>
+        <label for="place">Place</label>
+        <input type="text" formControlName="place" id="place">
+        <div *ngIf="updateForm.controls.place.invalid && updateForm.controls.place.touched" class="error">Place is required</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>

@@ -1,0 +1,19 @@
+{
+  "Students": [
+    {
+      "id": "2",
+      "name": "jayabhai",
+      "place": "hyd"
+    },
+    {
+      "id": "9",
+      "name": "Shanker",
+      "place": "Paradise"
+    },
+    {
+      "id": "5",
+      "name": "cita",
+      "place": "godavari"
+    }
+  ]
+}
